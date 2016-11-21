@@ -12,36 +12,41 @@
 	<h2>Wypełnij krótką ankietę!</h2>
 	<h:form>
 		Imie: 
-		<h:inputText value="#{SessionBean.firstName}">
-			<!-- <f:validateLength minimum="3" maximum="4"/> -->
+		<h:inputText id="fName" value="#{SessionBean.firstName}" validatorMessage="Twoje imie jest chyba za krótkie">
+			<f:validateLength minimum="3" />
 			<f:ajax render="nameText"/>
-		</h:inputText><br />
+		</h:inputText>
+		<h:message for="fName" style="color:red"/><br />
 		
 		Naziwsko: 
-		<h:inputText value="#{SessionBean.lastName}">
+		<h:inputText id="lName" value="#{SessionBean.lastName}" validatorMessage="Twoje naziwsko jest chyba za krótkie">
+			<f:validateLength minimum="3" />
 			<f:ajax render="nameText"/>
-		</h:inputText><br />
+		</h:inputText>
+		<h:message for="lName" style="color:red"/><br />
 		
-		Płeć:
-		<h:selectOneRadio value="#{RequestBean.sex}">
+		Płeć: <h:message for="sex" style="color:red"/>
+		<h:selectOneRadio id="sex" value="#{RequestBean.sex}" required="true" requiredMessage="płeć jest wymagana">
 		   	<f:selectItem itemValue="Mężczyzna" itemLabel="Mężczyzna" />
 		   	<f:selectItem itemValue="Kobieta" itemLabel="Kobieta" />
 		</h:selectOneRadio>
 		
+		
 		Ulubiony kolor:
-		<h:selectOneMenu value="#{RequestBean.favColor}">
+		<h:selectOneMenu id="color" value="#{RequestBean.favColor}">
    			<f:selectItem itemValue="Czerwony" itemLabel="Czerwony" />
    			<f:selectItem itemValue="Zielony" itemLabel="Zielony" />
    			<f:selectItem itemValue="Niebieski" itemLabel="Niebieski" />
 		</h:selectOneMenu><br />
 		
 		Lubie filmy:
-		<h:selectManyListbox value="#{RequestBean.favFilm}">
+		<h:selectManyListbox id="film" value="#{RequestBean.favFilm}" required="true" requiredMessage="Musisz chyba lubiec jakies filmy!">
    			<f:selectItem itemValue="Czarno Białe" itemLabel="Czarno Białe" />
    			<f:selectItem itemValue="Nieme" itemLabel="Nieme" />
    			<f:selectItem itemValue="Kolorowe" itemLabel="Kolorowe" />
    			<f:selectItem itemValue="Kazachstańskie" itemLabel="Kazachstańskie" />
-		</h:selectManyListbox><br />
+		</h:selectManyListbox>
+		<h:message for="film" style="color:red"/><br />
 
 		Witaj <h:outputText id="nameText" value="#{SessionBean.firstName} #{SessionBean.lastName}" />. Chcesz przesłać swoje dane? <br/>
 		<h:commandButton action="sayHi" value="Wyslij dane" styleClass="btn btn-primary" /> <br/>
