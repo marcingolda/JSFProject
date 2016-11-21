@@ -8,11 +8,9 @@
 <h:outputStylesheet library="css" name="bootstrap.min.css"  />
 </h:head>
 <h:body styleClass="col-md-8 col-md-offset-4">
-
-
 	<h:graphicImage value="resources/images/image.png"/>
 	<h2>Wypełnij krótką ankietę!</h2>
-	<h:form styleClass="form-horizontal">
+	<h:form>
 		Imie: 
 		<h:inputText id="fName" value="#{SessionBean.firstName}" validatorMessage="Twoje imie jest chyba za krótkie" valueChangeListener="#{SessionBean.valueChangeMethod}">
 			<f:validateLength minimum="3" />
