@@ -10,15 +10,15 @@
 <h:body>
 	<h:form>
 		Imie: 
-		<h:inputText value="#{IndexBean.firstName}" required="true">
+		<h:inputText value="#{RequestBean.requestTest}" required="true">
 			<!-- <f:validateLength minimum="3" maximum="4"/> -->
 			<f:ajax render="nameText"/>
 		</h:inputText>
 		<br />
-		Naziwsko: <h:inputText value="#{IndexBean.lastName}" />
+		Naziwsko: <h:inputText value="#{SessionBean.lastName}" />
 		<br />
 		<h:commandButton action="sayHi" value="submit" styleClass="btn btn-primary" /> <br/>
-		<h:outputText id="nameText" value="#{IndexBean.firstName}" />
+		<h:outputText id="nameText" value="#{RequestBean.requestTest}" />
 	</h:form>
 </h:body>
 </html>

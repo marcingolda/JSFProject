@@ -3,9 +3,9 @@ package main;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-@ManagedBean(name = "IndexBean")
+@ManagedBean(name = "SessionBean")
 @SessionScoped
-public class IndexBean {	
+public class SessionBean {	
 	private String firstName;
 	private String lastName;
 	
