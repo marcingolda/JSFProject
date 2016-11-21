@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:p="http://primefaces.org/ui"  
     >
 <h:head>
 <meta charset="UTF-8" />
-<title>Insert title here</title>
+<title>Jakiś Tytuł</title>
+<h:outputStylesheet library="css" name="bootstrap.min.css"  />
 </h:head>
 <h:body>
 	<h:form>
 		Imie: 
-		<p:inputText value="#{IndexBean.firstName}" required="true">
+		<h:inputText value="#{IndexBean.firstName}" required="true">
 			<!-- <f:validateLength minimum="3" maximum="4"/> -->
 			<f:ajax render="nameText"/>
-		</p:inputText>
+		</h:inputText>
 		<br />
-		Naziwsko: <p:inputText value="#{IndexBean.lastName}" />
+		Naziwsko: <h:inputText value="#{IndexBean.lastName}" />
 		<br />
-		<p:commandButton action="sayHi" value="submit" styleClass="ui-priority-primary" /> <br/>
+		<h:commandButton action="sayHi" value="submit" styleClass="btn btn-primary" /> <br/>
 		<h:outputText id="nameText" value="#{IndexBean.firstName}" />
 	</h:form>
 </h:body>
