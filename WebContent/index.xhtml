@@ -7,26 +7,28 @@
 <title>Jakiś Tytuł</title>
 <h:outputStylesheet library="css" name="bootstrap.min.css"  />
 </h:head>
-<h:body>
+<h:body styleClass="col-md-8 col-md-offset-4">
+
+
 	<h:graphicImage value="resources/images/image.png"/>
 	<h2>Wypełnij krótką ankietę!</h2>
-	<h:form>
+	<h:form styleClass="form-horizontal">
 		Imie: 
-		<h:inputText id="fName" value="#{SessionBean.firstName}" validatorMessage="Twoje imie jest chyba za krótkie">
+		<h:inputText id="fName" value="#{SessionBean.firstName}" validatorMessage="Twoje imie jest chyba za krótkie" valueChangeListener="#{SessionBean.valueChangeMethod}">
 			<f:validateLength minimum="3" />
 			<f:ajax render="nameText"/>
 		</h:inputText>
 		<h:message for="fName" style="color:red"/><br />
 		
 		Naziwsko: 
-		<h:inputText id="lName" value="#{SessionBean.lastName}" validatorMessage="Twoje naziwsko jest chyba za krótkie">
+		<h:inputText id="lName" value="#{SessionBean.lastName}" validatorMessage="Twoje naziwsko jest chyba za krótkie" valueChangeListener="#{SessionBean.valueChangeMethod}">
 			<f:validateLength minimum="3" />
 			<f:ajax render="nameText"/>
 		</h:inputText>
 		<h:message for="lName" style="color:red"/><br />
 		
 		Płeć: <h:message for="sex" style="color:red"/>
-		<h:selectOneRadio id="sex" value="#{RequestBean.sex}" required="true" requiredMessage="płeć jest wymagana">
+		<h:selectOneRadio id="sex" value="#{RequestBean.sex}" required="true" requiredMessage="płeć jest wymagana" >
 		   	<f:selectItem itemValue="Mężczyzna" itemLabel="Mężczyzna" />
 		   	<f:selectItem itemValue="Kobieta" itemLabel="Kobieta" />
 		</h:selectOneRadio>
@@ -40,7 +42,7 @@
 		</h:selectOneMenu><br />
 		
 		Lubie filmy:
-		<h:selectManyListbox id="film" value="#{RequestBean.favFilm}" required="true" requiredMessage="Musisz chyba lubiec jakies filmy!">
+		<h:selectManyListbox id="film" value="#{RequestBean.favFilm}" required="true" requiredMessage="Musisz chyba lubiec jakies filmy!" valueChangeListener="#{RequestBean.valueChangeMethod}">
    			<f:selectItem itemValue="Czarno Białe" itemLabel="Czarno Białe" />
    			<f:selectItem itemValue="Nieme" itemLabel="Nieme" />
    			<f:selectItem itemValue="Kolorowe" itemLabel="Kolorowe" />
