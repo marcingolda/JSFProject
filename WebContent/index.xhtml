@@ -14,11 +14,34 @@
 			<!-- <f:validateLength minimum="3" maximum="4"/> -->
 			<f:ajax render="nameText"/>
 		</h:inputText><br />
+		
 		Naziwsko: 
 		<h:inputText value="#{SessionBean.lastName}">
 			<f:ajax render="nameText"/>
 		</h:inputText><br />
-		Witaj <h:outputText id="nameText" value="#{SessionBean.firstName} #{SessionBean.lastName}" /> <br/>
+		
+		Płeć:
+		<h:selectOneRadio value="#{RequestBean.sex}">
+		   	<f:selectItem itemValue="Mężczyzna" itemLabel="Mężczyzna" />
+		   	<f:selectItem itemValue="Kobieta" itemLabel="Kobieta" />
+		</h:selectOneRadio>
+		
+		Ulubiony kolor:
+		<h:selectOneMenu value="#{RequestBean.favColor}">
+   			<f:selectItem itemValue="Czerwony" itemLabel="Czerwony" />
+   			<f:selectItem itemValue="Zielony" itemLabel="Zielony" />
+   			<f:selectItem itemValue="Niebieski" itemLabel="Niebieski" />
+		</h:selectOneMenu><br />
+		
+		Lubie filmy:
+		<h:selectManyListbox value="#{RequestBean.favFilm}">
+   			<f:selectItem itemValue="Czarno Białe" itemLabel="Czarno Białe" />
+   			<f:selectItem itemValue="Nieme" itemLabel="Nieme" />
+   			<f:selectItem itemValue="Kolorowe" itemLabel="Kolorowe" />
+   			<f:selectItem itemValue="Kazachstańskie" itemLabel="Kazachstańskie" />
+		</h:selectManyListbox><br />
+
+		Witaj <h:outputText id="nameText" value="#{SessionBean.firstName} #{SessionBean.lastName}" />. Chcesz przesłać swoje dane? <br/>
 		<h:commandButton action="sayHi" value="Wyslij dane" styleClass="btn btn-primary" /> <br/>
 	</h:form>
 </h:body>

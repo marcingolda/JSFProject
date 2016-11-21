@@ -5,6 +5,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Witaj <h:outputText value="#{IndexBean.firstName} #{IndexBean.lastName}" />  
+	Witaj <h:outputText value="#{SessionBean.firstName} #{SessionBean.lastName}" /><br/>
+	Twoja płeć to <h:outputText value="#{RequestBean.sex}" /><br/>
+	Twój ulubiony kolor to <h:outputText value="#{RequestBean.favColor}" /><br/>
+	Lubisz filmy <h:outputText value="#{RequestBean.favFilm}" />
 </body>
 </html>
